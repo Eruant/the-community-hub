@@ -1,0 +1,28 @@
+{
+  "name": "the-community-hub",
+  "version": "0.0.1",
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf temp",
+    "prebuild": "npm run clean && mkdir dist && mkdir temp",
+    "build": "npm run transform && node temp/build",
+    "transform": "babel src -d temp",
+    "prestart": "npm run build",
+    "start": "browser-sync start --server dist"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ],
+    "sourceMaps": true
+  },
+  "devDependencies": {
+    "babel-cli": "6.9.0",
+    "babel-polyfill": "6.9.1",
+    "babel-preset-es2015": "6.9.0",
+    "babel-preset-react": "6.5.0",
+    "browser-sync": "2.12.10",
+    "react": "15.1.0",
+    "react-dom": "15.1.0"
+  }
+}
